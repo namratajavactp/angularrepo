@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>Dynamic Angular Forms with ngForm (Working) - CodePen</title>
+
+  <link rel='stylesheet prefetch' href='http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css'>
+
+</head>
+
+<body>
+
+  <div class="container" ng-app="dynamicFormApp" ng-controller="mainController">
+
+  <div class="page-header">
+      <h3 class="text-success">Dynamic Way</h3>
+      <p>Each field acts as its own input and validates by itself... like it should.</p>
+    </div>
+
+    <form name="userFormTwo" novalidate>
+
+        <div class="form-group" ng-repeat="user in formDataTwo.users" ng-class="{ 'has-error' : userFieldForm.email.$invalid }">
+
+        <ng-form name="userFieldForm">
+            <label>{{ user.name }}'s Email</label>
+            <input type="email" class="form-control" name="email" ng-model="user.email" required>
+            <p class="help-block" ng-show="userFieldForm.email.$invalid">Valid Email Required</p>
+        </ng-form>
+
+        </div>
+
+    </form>
+
+    <pre><code>
+      {{ formDataTwo }}
+    </code></pre>
+
+</div>
+
+  <script src='http://codepen.io/assets/libs/fullpage/jquery.js'></script>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.16/angular.min.js'></script>
+
+  <script src="js/index.js"></script>
+
+</body>
+
+</html>

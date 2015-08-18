@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Example Inter Module Data Access </title>
+ <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.4/angular.min.js"></script>
+  
+</head>
+
+<body ng-app="myModule2">
+  <h1>Example Inter Module Data Access</h1>
+  <div ng-controller="Controller1">{{name}}</div>
+  <div ng-controller="Controller2">
+    <div>{{name}}</div>
+    <button ng-click="appendText(name)">appendText</button>
+    <p>{{name2}}</p>
+  </div>
+  
+ <script>
+ // Decalaring app module
+var app1 = angular.module('myModule1', []);
+//Adding controller to module named myModule
+app1.controller('Controller1', function($scope) {
+  $scope.name = 'This is controller1 of module1';
+
+});
+
+app1.factory('myfac',
+  function() {
+    return {
+
+      appendText: function(str) {
+        return 'Appended function of module 1 & ' + str;
+
+      }
+    };
+  }
+);
+
+var app2 = angular.module('myModule2', ['myModule1']);
+//Adding controller to module named myModule
+app2.controller('Controller2', function($scope,myfac) {
+  $scope.name = 'This is controller2 of module2';
+
+  $scope.appendText = function() {
+  
+  $scope.name2= myfac.appendText($scope.name);
+    
+  };
+});
+ </script>
+</body>
+
+</html>

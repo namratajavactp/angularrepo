@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+    <title>Citiustech AngularJS -Add two numbers </title>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+</head>
+<body>
+<div ng-controller="ContactController">
+    no1:<input type="number" ng-model="no1"/>
+    no2:<input type="number" ng-model="no2"/>
+
+    <button ng-click="add()">Greet</button>
+
+    <h2>  {{no3 }}   </h2>
+
+</div>
+<script type="text/javascript">
+    function ContactController($scope) {
+
+
+
+        $scope.add = function() {
+       //     $scope.myname1 = "hi  "+$scope.myname;
+
+       $scope.no3=$scope.no1 + $scope.no2;
+        }
+    }
+</script>
+</body>
+</html>

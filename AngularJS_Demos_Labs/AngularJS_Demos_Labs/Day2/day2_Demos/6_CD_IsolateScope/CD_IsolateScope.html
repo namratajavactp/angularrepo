@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html >
+<head>
+<title>CitiusTech - Angular JS Training</title>
+<script type="text/javascript"
+    src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular.min.js"></script>
+</head>
+<body ng-app = "IsolatingScope">
+	<div ng-controller="PatientController">  		
+  		<patient-Tagline info="patient1"></patient-Tagline>
+  		<hr/>
+  		<patient-Tagline info="patient2"></patient-Tagline>  		
+	</div>	
+</body>
+<script type="text/javascript">
+
+	angular.module('IsolatingScope', [])
+		.controller('PatientController', ['$scope', function($scope) {
+			$scope.patient1 = { name: 'Test, Patient1', disease: 'Asthama' };
+  			$scope.patient2 = { name: 'Test, Patient2', disease: 'Blood Pressure' }; 	
+		}])
+		.directive('patientTagline', function() {
+			return {
+				restrict: 'E',
+				scope: {
+					patientInfo: '=info'
+				},
+				templateUrl: 'patientTagline.html'
+			};
+		});    
+
+</script>
+</html>

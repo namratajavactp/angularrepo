@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html >
+<head>
+<title>CitiusTech - Angular JS Training</title>
+<script type="text/javascript"
+    src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+</head>
+<body ng-app = "NumberExample">
+	<form name="myForm" ng-controller="PatientController">
+		<div>
+			<div>
+				<div style="float:left;"><b>Patient Name:</b></div>
+				<div tyle="float:right;">
+					<input type="text" name="input" ng-model="patientName"
+                      	ng-pattern="word" required ng-trim="false" ng-Minlength=3 ng-Maxlength=20>
+					<span class="error" ng-show="myForm.input.$error.required">
+      						**Required!
+      				</span>
+      				 <span class="error" ng-show="myForm.input.$error.pattern">
+					      Not valid text, it should be single word!<br/>
+					  </span>
+				</div>
+			</div>
+			
+			<div>
+				<div style="float:left;">&nbsp;</div>
+				<div style="float:left;">						
+					  <tt>text = {{patientName}}</tt><br/>
+					  <tt>myForm.input.$valid = {{myForm.input.$valid}}</tt><br/>
+					  <tt>myForm.input.$error = {{myForm.input.$error}}</tt><br/>	
+					  <tt>myForm.$valid = {{myForm.$valid}}</tt><br/>
+					  <tt>myForm.$error.required = {{!!myForm.$error.required}}</tt>
+				</div>				
+			</div>			
+		</div>
+	</form>	
+</body>
+<script type="text/javascript">
+
+	angular.module('NumberExample', [])
+		.controller('PatientController', ['$scope', function($scope) {
+			$scope.patientName = 'Test';
+      		$scope.word = /^\s*\w*\s*$/;
+		}]);    
+
+</script>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html >
+<head>
+<title>CitiusTech - Angular JS Training</title>
+<script type="text/javascript"
+    src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+</head>
+<body ng-app = "EmailExample">
+	<form name="myForm" ng-controller="PatientController">
+		<div>
+			<div>
+				<div style="float:left;"><b>Email:</b></div>
+				<div tyle="float:right;">
+					<input type="email" name="input" ng-model="text" required>
+					<span class="error" ng-show="myForm.input.$error.required">
+      						**Required!
+      				</span>
+				</div>
+			</div>
+			<div>
+				<div style="float:left;">						
+					    <span class="error" ng-show="myForm.input.$error.email">
+					      Not valid email!
+					  </span>
+				</div>				
+			</div>			
+		</div>
+	</form>	
+</body>
+<script type="text/javascript">
+
+	angular.module('EmailExample', [])
+		.controller('PatientController', ['$scope', function($scope) {
+			$scope.patientEmailAddress = "me@example.com";
+		}]);    
+
+</script>
+</html>

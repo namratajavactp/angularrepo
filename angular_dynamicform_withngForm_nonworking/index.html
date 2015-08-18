@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>Dynamic Angular Forms with ngForm (Non-Working) - CodePen</title>
+
+  <link rel='stylesheet prefetch' href='http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css'>
+
+</head>
+
+<body>
+
+  <div class="container" ng-app="dynamicFormApp" ng-controller="mainController">
+
+  <div class="page-header">
+      <h3 class="text-danger">Non Dynamic Way</h3>
+      <p>All fields need to be filled in for the error to go away. It treats all of the fields as one input.</p>
+    </div>
+
+    <form name="userFormOne" novalidate>
+
+      <div class="form-group" ng-repeat="person in formDataOne.people" ng-class="{ 'has-error' : userFormOne.email.$invalid }">
+
+        <label>{{ person.name }}'s Email</label>
+        <input type="email" class="form-control" name="email" ng-model="person.email" required>
+        <p class="help-block" ng-show="userFormOne.email.$invalid">Valid Email Required</p>
+
+      </div>
+
+    </form>
+
+    <pre><code>
+      {{ formDataOne }}
+    </code></pre>
+</div>
+
+  <script src='http://codepen.io/assets/libs/fullpage/jquery.js'></script>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.16/angular.min.js'></script>
+
+  <script src="js/index.js"></script>
+
+</body>
+
+</html>

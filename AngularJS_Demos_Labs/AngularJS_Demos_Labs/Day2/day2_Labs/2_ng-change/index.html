@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="plunker">
+
+<head>
+  <meta charset="utf-8" />
+  <title>AngularJS Plunker</title>
+  <script>
+    document.write('<base href="' + document.location + '" />');
+  </script>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+  <script data-require="angular.js@1.2.x" src="https://code.angularjs.org/1.2.27/angular.js" data-semver="1.2.27"></script>
+  <script src="app.js"></script>
+</head>
+
+<body ng-controller="MainCtrl">
+  <div>
+    Country:
+    <select id="doctor" class="form-control" ng-model="patients" ng-options="doctor for (doctor, patients) in doctors">
+      <option value=''>Select Doctor</option>
+    </select>
+  </div>
+  <div>
+    States:
+    <select id="patient" class="form-control" ng-disabled="!patients" ng-model="patAdresses" ng-options="patient for (patient,patAdress) in patients">
+      <option value=''>Select Patient</option>
+    </select>
+  </div>
+  <div>
+    City:
+    <select id="patAdress" class="form-control" ng-disabled="!patAdresses || !patients" ng-model="patAdress" ng-options="patAdress for patAdress in patAdresses">
+      <option value=''>Select Patient Addr</option>
+    </select>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html >
+<head>
+<title>CitiusTech - Angular JS Training</title>
+<script type="text/javascript"
+    src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+</head>
+<body ng-app = "RadiobuttonExample">
+	<form name="myForm" ng-controller="PatientController">
+		<div>
+			<div>
+				<div tyle="float:right;">
+					<input type="radio" ng-model="color" value="red">  Red <br/>
+  					<input type="radio" ng-model="color" ng-value="specialValue"> Green <br/>
+  					<input type="radio" ng-model="color" value="blue"> Blue <br/>
+				</div>
+			</div>			
+			<div>
+				<div style="float:left;">						
+					    <tt>color = {{color | json}}</tt>
+				</div>				
+			</div>			
+		</div>
+	</form>	
+</body>
+<script type="text/javascript">
+
+	angular.module('RadiobuttonExample', [])
+		.controller('PatientController', ['$scope', function($scope) {
+			  $scope.color = 'blue';
+		      $scope.specialValue = {
+		        "id": "12345",
+		        "value": "green"
+		      };
+		}]);    
+
+</script>
+</html>

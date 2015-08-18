@@ -1,0 +1,5 @@
+1) npm install karma karma-chrome-launcher karma-jasmine
+2) npm install karma-cli-g  (karma's command line interface red-blue color oytput)
+3) karma init (karma.config file)
+4) start karma
+

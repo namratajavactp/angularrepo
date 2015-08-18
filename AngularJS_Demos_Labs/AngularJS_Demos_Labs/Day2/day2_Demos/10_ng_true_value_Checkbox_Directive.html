@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html >
+<head>
+<title>CitiusTech - Angular JS Training</title>
+<script type="text/javascript"
+    src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+</head>
+<body ng-app = "checkboxExample">
+	<form name="myForm" ng-controller="PatientController">
+		<div>
+			<div>
+				<div style="float:left;"><b>Is Patient Active:</b></div>
+				<div tyle="float:right;"><input type="checkbox" ng-model="isActivePatient"></div>
+			</div>
+			<div>
+				<div style="float:left;"><b>Model Value:</b></div>
+				<div tyle="float:right;">{{isActivePatient}}</div>
+			</div>
+			<div>&nbsp;</div>
+			<div>
+				<div style="float:left;"><b>Is Patient Arrived:</b></div>
+				<div tyle="float:right;"><input type="checkbox" ng-model="isPatientArrived" 
+					ng-true-value="YES" ng-false-value="NO"></div>
+				</div>
+				<div>
+					<div style="float:left;"><b>Model Value:</b></div>
+					<div tyle="float:right;">{{isPatientArrived}}</div>
+				</div>
+			</div>
+		</div>
+	</form>	
+</body>
+<script type="text/javascript">
+
+	angular.module('checkboxExample', [])
+		.controller('PatientController', ['$scope', function($scope) {
+			$scope.isActivePatient = true;
+	      	$scope.isPatientArrived = 'YES'
+		}]);    
+
+</script>
+</html>

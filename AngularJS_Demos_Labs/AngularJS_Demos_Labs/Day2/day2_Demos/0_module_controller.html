@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Citiustech - AngularJS Session </title>
+    <script type="text/javascript"
+            src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+</head>
+<body ng-app="myapp">
+
+<div ng-controller="ContactController">
+    Greet:<input type="text" ng-model="myname"/>
+
+    <button ng-click="greet()">Greet</button>
+
+    <button ng-click="clear()">Clear</button>
+
+    <h2>  {{ myname1 }}   </h2>
+
+</div>
+<script type="text/javascript">
+
+
+
+   var app = angular.module("myapp",[]);
+
+    app.value("salutation","wake up");
+
+    app.controller("ContactController",function($scope,salutation) {
+
+        //     $scope.abc="angular session";
+
+        $scope.clear = function() {
+            $scope.myname = "";
+        }
+
+        $scope.greet = function() {
+            $scope.myname1 = salutation+" "+$scope.myname;
+        }
+    });
+</script>
+</body>
+</html>

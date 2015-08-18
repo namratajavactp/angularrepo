@@ -1,0 +1,45 @@
+	<!DOCTYPE html>
+	<html ng-app>
+	<head>
+		<title>CitiusTech - Angular JS Training</title>
+		<script type="text/javascript"
+		src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+	</head>
+	<body>
+		<div ng-controller="specialistController" style="border: solid 1px #dcdcdc;">
+			<div>
+				<div style="float:left;"><b>Doctor Name:</b></div>
+				<div tyle="float:right;">{{ doctorName }}</div>
+			</div>
+			<div>
+				<div style="float:left;"><b>Speciality:</b></div>
+				<div tyle="float:right;">{{ speciality }}</div>
+			</div>			
+		</div>				
+		<div ng-controller="normalSpecialistController" style="margin : 30px; border: solid 1px #dcdcdc;">
+			<div>
+				<div style="float:left;"><b>Doctor Name:</b></div>
+				<div tyle="float:right;">{{ doctorName }}</div>
+			</div>			
+
+			<div>
+				<div style="float:left;"><b>Speciality:</b></div>
+				<div tyle="float:right;">{{ speciality }}</div>
+			</div>				
+		</div>	
+	</div>		
+</div>
+
+<script type="text/javascript">
+function specialistController($scope) {			
+	$scope.doctorName = "Specialist, Doctor";
+	$scope.speciality = "Heart"		
+}
+function normalSpecialistController($scope, $injector) {	
+	$injector.invoke(specialistController, this, {$scope: $scope});     
+    $scope.doctorName = "Normal Specialist, Doctor";    
+}
+
+</script>
+</body>
+</html>

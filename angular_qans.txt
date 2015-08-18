@@ -1,0 +1,40 @@
+1) for which kind of applications angular is not fit for?
+Games and GUI editors are examples of applications with intensive and tricky DOM manipulation. These kinds of apps are different from CRUD apps, and as a result are probably not a good fit for Angular. In these cases it may be better to use a library with a lower level of abstraction, such as jQuery.
+
+
+2) diffrence between $watch,$digest and $apply
+http://www.benlesh.com/2013/08/angularjs-watch-digest-and-apply-oh-my.html
+
+
+3)
+While straightforward, this method will not work with JavaScript minifiers/obfuscators as they rename the method parameter names. This makes this way of annotating only useful for pretotyping, and demo applications.
+
+function MyController($scope, greeter) {
+  // ...
+}
+https://docs.angularjs.org/guide/di
+
+angular.module('myModule', [])
+  .factory('serviceId', ['depService', function(depService) {
+    ...
+  }])
+  .directive('directiveName', ['depService', function(depService) {
+    ...
+  }])
+  .filter('filterName', ['depService', function(depService) {
+    ...
+  }]);
+
+
+what does this mean?
+someModule.controller('MyController', ['$scope', 'dep1', 'dep2', function($scope, dep1, dep2) {
+  ...
+  $scope.aMethod = function() {
+    ...
+  }
+  ...
+}]);
+This avoids the creation of global functions for controllers and also protects against minification.
+
+4)what is the use of $route diff between $route and $routeprovider
+5)diffrence between factory and function
